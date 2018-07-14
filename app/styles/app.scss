@@ -40,6 +40,7 @@ h1, h2 {
 
 h1 {
   font-size: 2rem;
+  line-height: 2.5rem;
 }
 
 h2 {
@@ -49,6 +50,7 @@ h2 {
 
 h3 {
   font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 strong {
@@ -66,14 +68,14 @@ em {
 
 article {
   font-size: 1rem;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
 }
 
 article {
   h1, h2, h3, blockquote {
     position: relative;
     max-width: calc(800px + 2rem);
-    margin: 1rem auto 2rem;
+    margin: 1rem auto;
     padding: 0 1rem;
   }
 }
