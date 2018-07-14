@@ -37,13 +37,29 @@ footer {
 h1, h2 {
   font-weight: 800;
 }
+
+h1 {
+  font-size: 2rem;
+}
+
 h2 {
   font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
 }
 
 strong {
   font-weight: 800;
 }
+
+small {
+  display: block;
+  font-size: 0.8rem;
+}
+
 em {
   font-style: italic;
 }
@@ -53,19 +69,22 @@ article {
   line-height: 1.2rem;
 }
 
-article h1 {
-  position: relative;
-  max-width: calc(800px + 2rem);
-  margin: 1rem auto 2rem;
-  font-size: 2rem;
-  padding: 0 1rem;
+article {
+  h1, h2, h3, blockquote {
+    position: relative;
+    max-width: calc(800px + 2rem);
+    margin: 1rem auto 2rem;
+    padding: 0 1rem;
+  }
 }
 
-article p {
-  position: relative;
-  max-width: calc(800px + 2rem);
-  margin: 1rem auto;
-  padding: 0 1rem;
+article {
+  p, small {
+    position: relative;
+    max-width: calc(800px + 2rem);
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
 }
 
 article figure {
