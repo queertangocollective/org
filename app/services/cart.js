@@ -19,6 +19,8 @@ export default Service.extend({
     }, 0);
   }),
 
+  currency: reads('tickets.firstObject.currency'),
+
   add(ticket) {
     if (this.tickets.indexOf(ticket) === -1) {
       this.tickets.pushObject(ticket);
@@ -29,7 +31,7 @@ export default Service.extend({
     this.tickets.removeObject(ticket);
   },
 
-  clear(cart) {
-    cart.tickets.clear();
+  clear() {
+    this.set('tickets', []);
   }
 });

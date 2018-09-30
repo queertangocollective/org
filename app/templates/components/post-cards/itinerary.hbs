@@ -1,13 +1,22 @@
-<p>
-  {{#each events as |event|}}
-    <div>
-      {{event.title}}
-      {{event.startsAt}}
-      {{event.endsAt}}
-      {{event.venue.location.name}}, {{event.venue.extendedAddress}}
-      {{#if event.mobiledoc}}
-        {{render-mobiledoc mobiledoc=event.mobiledoc tagName='' atomNames=(list 'line-break')}}
-      {{/if}}
-    </div>  
-  {{/each}}
-</p>
+<div class="itinerary wide-container clear-fix">
+  <div>
+    <h3 class="sticky">Schedule</h3>
+    <ol>
+      {{#each events as |event|}}
+        <li>
+          <h4>{{event.title}}</h4>
+          {{date-range event.startsAt event.endsAt}}<br>
+          {{#if event.venue}}
+            <a href="#{{event.venue.location.name}}">{{event.venue.location.name}}</a><br>
+          {{/if}}
+          {{#each event.guests as |guest|}}
+            {{guest.role}} <a href="#{{guest.person.name}}">{{guest.person.name}}</a>
+          {{/each}}
+          {{#if event.description}}
+            {{post-body mobiledoc=event.description tagName='' cardNames=(list 'youtube' 'photo' 'ticket' 'itinerary' 'gallery') atomNames=(list 'line-break')}}
+          {{/if}}
+        </li>
+      {{/each}}
+    </ol>
+  </div>
+</div>

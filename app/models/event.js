@@ -6,6 +6,7 @@ const { attr, belongsTo, hasMany } = DS;
 export default DS.Model.extend({
   title: attr('string'),
   description: attr('string'),
+  guests: hasMany('guest'),
   venue: belongsTo('venue'),
   startsAt: attr('date'),
   endsAt: attr('date'),

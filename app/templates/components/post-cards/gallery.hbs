@@ -1,0 +1,9 @@
+{{#if (equals payload.type 'polyptich')}}
+  {{#each photos as |photo|}}
+    <img src={{photo.url}} title={{photo.title}}>
+  {{/each}}
+{{else}}
+  {{#each photos as |photo|}}
+    <img src={{photo.url}} title={{photo.title}}>
+  {{/each}}
+{{/if}}

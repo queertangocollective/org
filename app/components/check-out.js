@@ -4,16 +4,17 @@ import RSVP from 'rsvp';
 
 export default Component.extend({
   classNames: ['check-out'],
-  removeTicket(ticket, evt) {
-    evt.preventDefault();
-    this.cart.remove(ticket);
-  },
   pay(paymentInfo) {
     return this.onpay(paymentInfo).then(() => {
       this.set('hasPaid', true);
     }, (error) => {
       this.set('error', error);
     });
+  },
+
+  clearCart(evt) {
+    evt.preventDefault();
+    this.cart.clear();
   },
 
   payment: computed('cart.total', function () {

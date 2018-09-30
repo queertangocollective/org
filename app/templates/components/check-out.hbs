@@ -1,18 +1,18 @@
 <form>
-  <h2>Checkout</h2>
+  <h3 class='sticky'>Checkout <button type='reset' onclick={{action clearCart}}>x</button></h3>
   <div class='body'>
+    <h4>Events</h4>
     {{#each cart.tickets as |ticket|}}
-      <div>
-        {{ticket.description}}
+      <ol>
         {{#each ticket.events as |event|}}
-          {{event.title}}
+          <li>
+            <h4>{{event.title}}</h4>
+            {{date-range event.startsAt event.endsAt}}
+          </li>
         {{/each}}
-        {{ticket.cost}}
-        <button type='reset' onclick={{action removeTicket ticket}}>x</button>
-      </div>
+      </ol>
     {{/each}}
-
-    {{cart.total}}
+    <br>
     <fieldset>
       <label for="full-name">
         Name*
@@ -34,9 +34,10 @@
     </fieldset>
   </div>
   <footer>
-    {{payment-button payment=payment}}
     <button type='submit' disabled={{not isComplete}} onclick={{action pay (hash stripeElement=stripeElement email=email name=name tickets=cart.tickets)}}>
-      Pay
+      Pay {{#if cart.currency}}
+        {{money cart.total cart.currency}}
+      {{/if}}
     </button>
   </footer>
 </form>
