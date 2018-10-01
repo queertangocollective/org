@@ -1,4 +1,4 @@
-<div class="container location">
+<div class="wide-container">
   {{#if location.name}}
     <h3 class='sticky'>
       {{~#if location.website~}}
@@ -8,10 +8,12 @@
       {{~/if~}}
     </h3>
   {{/if}}
-  {{location.addressLine}}<br>
-  {{#if location.extendedAddress}}
-    {{location.extendedAddress}}<br>
-  {{/if}}
-  {{location.city}}{{#if location.regionCode}}, {{location.regionCode}}{{/if}}{{#if location.postalCode}} {{location.postalCode}}{{/if}}<br>
-  <a target="_blank" href="https://www.google.com/maps/dir//{{location.latitude}},{{location.longitude}}/@{{location.latitude}},{{location.longitude}},15z">Directions</a>
+  <p>
+    {{location.addressLine}}<br>
+    {{#if location.extendedAddress}}
+      {{location.extendedAddress}}<br>
+    {{/if}}
+    {{location.city}}{{#if location.regionCode}}, {{location.regionCode}}{{/if}}{{#if location.postalCode}} {{location.postalCode}}{{/if}}<br>
+    <a target="_blank" href="https://www.google.com/maps/dir//{{location.latitude}},{{location.longitude}}/@{{location.latitude}},{{location.longitude}},15z">Directions</a>
+  </p>
 </div>
