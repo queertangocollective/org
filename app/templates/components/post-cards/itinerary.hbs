@@ -12,8 +12,8 @@
           {{#each event.guests as |guest|}}
             {{guest.role}} <a href="#{{guest.person.name}}">{{guest.person.name}}</a>
           {{/each}}
-          {{#if event.description}}
-            {{post-body mobiledoc=event.description tagName='' cardNames=(list 'youtube' 'photo' 'ticket' 'itinerary' 'gallery') atomNames=(list 'line-break')}}
+          {{#if event.mobiledoc}}
+            {{post-body mobiledoc=event.mobiledoc tagName='' cardNames=(list 'youtube' 'photo' 'ticket' 'itinerary' 'gallery') atomNames=(list 'line-break')}}
           {{/if}}
         </li>
       {{/each}}
