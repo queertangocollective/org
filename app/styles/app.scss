@@ -270,6 +270,10 @@ article > div > small {
   margin: 0 auto;
 }
 
+small {
+  font-size: 0.8rem;
+}
+
 article figure {
   margin: 0;
   padding: 0;
@@ -365,6 +369,26 @@ article figcaption {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+article blockquote {
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  width: calc(100% - 2px - 4rem);
+  position: relative;
+  max-width: calc(800px - 2rem);
+  margin: 2rem auto;
+  padding: 0 1rem 0 3rem;
+
+  &:before {
+    content: '“';
+    display: block;
+    position: absolute;
+    left: 1.75rem;
+    font-size: 2rem;
+    color: #CCCCCC;
+  }
 }
 
 .side-panel-container {
