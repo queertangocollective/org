@@ -7,10 +7,10 @@
           <h4>{{event.title}}</h4>
           {{date-range event.startsAt event.endsAt}}<br>
           {{#if event.venue}}
-            <a href="#{{event.venue.location.name}}">{{event.venue.location.name}}</a>{{#if event.venue.extendedAddress}} {{event.venue.extendedAddress}}{{/if}}<br>
+            <a href="#{{slugify event.venue.location.name}}">{{event.venue.location.name}}</a>{{#if event.venue.extendedAddress}} {{event.venue.extendedAddress}}{{/if}}<br>
           {{/if}}
           {{#each-in event.bylines as |byline people|}}
-            {{byline}} {{#each people as |person idx|}}<a href="#{{person.name}}">{{person.name}}</a>{{joiner idx people.length}}{{/each}}<br>
+            {{byline}} {{#each people as |person idx|}}<a href="#{{slugify person.name}}">{{person.name}}</a>{{joiner idx people.length}}{{/each}}<br>
           {{/each-in}}
           {{#if event.mobiledoc}}
             {{post-body mobiledoc=event.mobiledoc tagName='' cardNames=(list 'youtube' 'photo' 'ticket' 'itinerary' 'gallery') atomNames=(list 'line-break')}}
