@@ -4,11 +4,18 @@ import RSVP from 'rsvp';
 
 export default Component.extend({
   classNames: ['check-out'],
-  pay(paymentInfo) {
+
+  pay(paymentInfo, evt) {
+    evt.preventDefault();
+    this.set('isComplete', false);
     return this.onpay(paymentInfo).then(() => {
+      debugger;
       this.set('hasPaid', true);
+      this.cart.clear();
     }, (error) => {
+      debugger;
       this.set('error', error);
+      this.cart.clear();
     });
   },
 
@@ -30,5 +37,11 @@ export default Component.extend({
         requestPayerEmail: true
       }
     });
-  })
+  }),
+
+  actions: {
+    preventDefault(evt) {
+      evt.preventDefault();
+    }
+  }
 });
